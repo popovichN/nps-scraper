@@ -1,23 +1,78 @@
 {
-    "T. Roosevelt": 18,
-    "W. Wilson": 15,
-    "F. Roosevelt": 31,
-    "95th Congress": 5,
-    "H. Hoover": 19,
-    "C. Coolidge": 11,
-    "J. Kennedy": 7,
-    "W. Harding": 9,
-    "H. Truman": 10,
-    "D. Eisenhower": 11,
-    "W. Clinton": 22,
-    "W. Taft": 10,
-    "undefined": 2,
-    "G. Ford": 2,
-    "94th Congress": 1,
-    "105th Congress": 1,
-    "L. Johnson": 5,
-    "J. Carter": 17,
-    "104th Congress": 1,
-    "B. H. Obama": 29,
-    "G. W. Bush": 6
+    "T. Roosevelt": {
+        "count_established": 18
+    },
+    "H. Hoover": {
+        "count_established": 9,
+        "count_enlarged": 10
+    },
+    "W. Taft": {
+        "count_established": 10,
+        "count_enlarged": 1
+    },
+    "F. Roosevelt": {
+        "count_established": 11,
+        "count_enlarged": 20
+    },
+    "W. Wilson": {
+        "count_established": 13,
+        "count_enlarged": 3
+    },
+    "W. Harding": {
+        "count_established": 8,
+        "count_enlarged": 2
+    },
+    "C. Coolidge": {
+        "count_established": 13,
+        "count_enlarged": 5
+    },
+    "H. Truman": {
+        "count_established": 1,
+        "count_enlarged": 9
+    },
+    "D. Eisenhower": {
+        "count_established": 2,
+        "count_enlarged": 9
+    },
+    "J. Kennedy": {
+        "count_established": 2,
+        "count_enlarged": 5
+    },
+    "L. Johnson": {
+        "count_established": 1,
+        "count_enlarged": 4
+    },
+    "J. Carter": {
+        "count_established": 15,
+        "count_enlarged": 2
+    },
+    "W. Clinton": {
+        "count_established": 19,
+        "count_enlarged": 3
+    },
+    "G. W. Bush": {
+        "count_established": 6
+    },
+    "B. H. Obama": {
+        "count_established": 29,
+        "count_enlarged": 5
+    },
+    "95th Congress": {
+        "count_enlarged": 5
+    },
+    "undefined": {
+        "count_enlarged": 2
+    },
+    "G. Ford": {
+        "count_enlarged": 2
+    },
+    "94th Congress": {
+        "count_enlarged": 1
+    },
+    "105th Congress": {
+        "count_enlarged": 1
+    },
+    "104th Congress": {
+        "count_enlarged": 1
+    }
 }

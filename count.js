@@ -34,13 +34,7 @@ fs.readFile('data.json', 'utf8', function (err, data) {
 					// 	acres = acres.replace(/\+/g, "")
 					// }
 
-					if (!counts[detail.president_congress]['count_established']) {
-						counts[detail.president_congress]['count_established'] = 1;
-						// counts[detail.president_congress]['total_acres_est'] = +detail.size; // need size type
-					}
-					else {
-						counts[detail.president_congress].count_established += 1;
-					}
+					counts[detail.president_congress].count_established += 1;
 					// if (!+acres) {
 					// 	console.log(detail, 'second')
 					// 	if (acres === '1.6 million') { 
@@ -51,7 +45,14 @@ fs.readFile('data.json', 'utf8', function (err, data) {
 					// 	counts[detail.president_congress].total_acres += +acres;
 					// }
 				}
-			} else if (arr_enlarged.indexOf(detail.action) >= 0 ) {
+			} 
+		});
+	});
+
+	parsed.forEach(function ( obj ) {
+		obj.details.forEach(function ( detail ) {
+			//console.log(detail)
+			if (arr_enlarged.indexOf(detail.action) >= 0 ) {
 				if (!counts[detail.president_congress]) {
 					counts[detail.president_congress] = {
 						"count_enlarged": 1
@@ -82,18 +83,16 @@ fs.readFile('data.json', 'utf8', function (err, data) {
 					// 	counts[detail.president_congress].total_acres += +acres;
 					// }
 				}
-			} else {
-				//console.log(detail)
-			}
+			} 
 		});
 	});
-	console.log(counts)
+	//console.log(counts)
   
- //  	fs.writeFileSync('count.json', JSON.stringify(counts), 'utf8', function (err) {
-	// 	if (err) {
-	// 		console.log("failed!");
-	// 	} else {
-	// 		console.log("success!");
-	// 	}
-	// });
+  	fs.writeFileSync('count.json', JSON.stringify(counts), 'utf8', function (err) {
+		if (err) {
+			console.log("failed!");
+		} else {
+			console.log("success!");
+		}
+	});
 });
