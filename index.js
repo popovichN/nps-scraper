@@ -82,7 +82,7 @@ request(url, function (err, resp, body) {
 	var new_monuments = [
 		{
 			"name": "Bears Ears",
-			"index": 154,
+			"index": 153,
 			"details": [{
 				"action": "Established",
 				"date": "12/28/2016",
@@ -93,7 +93,7 @@ request(url, function (err, resp, body) {
 		},
 		{
 			"name": "Gold Butte",
-			"index": 155,
+			"index": 154,
 			"details": [{
 				"action": "Established",
 				"date": "12/28/2016",
@@ -104,7 +104,7 @@ request(url, function (err, resp, body) {
 		},
 		{
 			"name": "Birmingham Civil Rights National Monument",
-			"index": 156,
+			"index": 155,
 			"details": [{
 				"action": "Established",
 				"date": "01/12/2017",
@@ -115,7 +115,7 @@ request(url, function (err, resp, body) {
 		},
 		{
 			"name": "Freedom Riders National Monument",
-			"index": 157,
+			"index": 156,
 			"details": [{
 				"action": "Established",
 				"date": "01/12/2017",
@@ -126,7 +126,7 @@ request(url, function (err, resp, body) {
 		},
 		{
 			"name": "Reconstruction Era National Monument",
-			"index": 158,
+			"index": 157,
 			"details": [{
 				"action": "Established",
 				"date": "01/12/2017",
