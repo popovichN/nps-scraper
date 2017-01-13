@@ -31,7 +31,18 @@ request(url, function (err, resp, body) {
 
 		//console.log(row, 'tr')
 		$(this).find('table.myTable').each(function() {
+
+
+			$(this).find('td').each(function ( td_index ) {
+				if(td_index === 3) {
+					monument.size_type = $(this).text().trim().replace(' Affected', '');
+				}
+
+			});
+				
 			$(this).find('tr').each(function( index_row ) {
+
+				//console.log(index_row, $(this).text().trim())
 				var details = {};
 
 				$(this).find('td').each(function( index_cell ){
@@ -56,9 +67,9 @@ request(url, function (err, resp, body) {
 
 					}
 					else if (index_cell === 3) {
-						details['acres'] = $(this).text().replace(/,/g, "").replace(/,/g, "").trim();
+						details['size_num'] = $(this).text().replace(/,/g, "").replace(/,/g, "").trim();
 					}
-				})
+				});
 
 				monument.details.push( details );
 			});
@@ -68,32 +79,94 @@ request(url, function (err, resp, body) {
 	});
 
 	//add missing monuments
-	var bears_ears = {
-		"name": "Bears Ears",
-		"index": 154,
-		"details": [{
-			"action": "Established",
-			"date": "12/28/2016",
-			"president_congress": "B. H. Obama",
-			"acres": "1350000"
-		}]
-	};
-	var gold_butte = {
-		"name": "Gold Butte",
-		"index": 155,
-		"details": [{
-			"action": "Established",
-			"date": "12/28/2016",
-			"president_congress": "B. H. Obama",
-			"acres": "296937"
-		}]
-	};
+	var new_monuments = [
+		{
+			"name": "Bears Ears",
+			"index": 154,
+			"details": [{
+				"action": "Established",
+				"date": "12/28/2016",
+				"president_congress": "B. H. Obama",
+				"acres": "1350000"
+			}],
+			"size_type": "Acres"
+		},
+		{
+			"name": "Gold Butte",
+			"index": 155,
+			"details": [{
+				"action": "Established",
+				"date": "12/28/2016",
+				"president_congress": "B. H. Obama",
+				"acres": "296937"
+			}],
+			"size_type": "Acres"
+		},
+		{
+			"name": "Birmingham Civil Rights National Monument",
+			"index": 156,
+			"details": [{
+				"action": "Established",
+				"date": "01/12/2017",
+				"president_congress": "B. H. Obama",
+				"acres": "unknown" 
+			}],
+			"size_type": "Acres"
+		},
+		{
+			"name": "Freedom Riders National Monument",
+			"index": 157,
+			"details": [{
+				"action": "Established",
+				"date": "01/12/2017",
+				"president_congress": "B. H. Obama",
+				"acres": "unknown" 
+			}],
+			"size_type": "Acres"
+		},
+		{
+			"name": "Reconstruction Era National Monument",
+			"index": 158,
+			"details": [{
+				"action": "Established",
+				"date": "01/12/2017",
+				"president_congress": "B. H. Obama",
+				"acres": "unknown" 
+			}],
+			"size_type": "Acres"
+		}
+	];
 
-	fullList.push(bears_ears);
-	fullList.push(gold_butte);
+ 	new_monuments.forEach(function ( monument ) {
+		fullList.push(monument);
+ 	});
+
+ // 	function findParks( parks ) { 
+	//     return parks.name === 'California Coastal';
+	// }
+
+	fullList.forEach(function ( park ) {
+		if(park.name === 'California Coastal') {
+			park.details.push({
+				"action": "Enlarged",
+				"date": "01/12/2017",
+				"president_congress": "B. H. Obama",
+				"size_num": "6230"
+			})
+		}
+
+		if(park.name === 'Cascade-Siskiyou') {
+			park.details.push({
+				"action": "Enlarged",
+				"date": "01/12/2017",
+				"president_congress": "B. H. Obama",
+				"size_num": "47000"
+			})
+		}
+	}); 
 
 
-	//console.log(fullList)
+	//write files
 	fs.writeFileSync('data.json', JSON.stringify(fullList), 'utf8', function (err) {
 		if (err) {
 			console.log("failed!");
