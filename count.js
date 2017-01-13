@@ -17,35 +17,57 @@ fs.readFile('data.json', 'utf8', function (err, data) {
 	parsed.forEach(function ( obj ) {
 		obj.details.forEach(function ( detail ) {
 			//console.log(detail)
-
+			
 			if (arr_established.indexOf(detail.action) >= 0 ) {
+
+				if (+detail.size_num) {
+					//console.log(detail.size_num, +detail.size_num)
+				}else {
+					//corrections for size anomalies
+					if (detail.size_num === '1.6 million') {
+						detail.size_num = '1600000'
+					}
+					if (detail.size_num === '4913 square miles') {
+						detail.size_num = '4913'
+					}
+					if (detail.size_num === 'unknown') {
+						detail.size_num = '0'
+					}
+
+					//console.log(detail.size_num, detail)
+				}
+
 				if (!counts[detail.president_congress]) {
 					counts[detail.president_congress] = {
 						"count_established": 1,
 						//"total_acres_est": +detail.acres 
 					};
 
+					if (obj.size_type === 'Acres') {
+						counts[detail.president_congress]["total_acres_est"] = +detail.size_num;
+					}
+					if (obj.size_type === 'Square Miles') {
+						counts[detail.president_congress]["total_sq_mi_est"] = +detail.size_num;
+					}
+
 				} else {
-					// var acres = detail.acres;
-					// if (!acres) {
-					// 	console.log(detail, 'first')
-					// }
-					// else {
-					// 	acres = acres.replace(/\+/g, "")
-					// }
+
 
 					counts[detail.president_congress].count_established += 1;
-					// if (!+acres) {
-					// 	console.log(detail, 'second')
-					// 	if (acres === '1.6 million') { 
-					// 		counts[detail.president_congress].total_acres += 1600000; 
-					// 	}
+
+					// if (obj.size_type === 'Acres') {
+					// 	counts[detail.president_congress]["total_acres_est"] = +detail.size_num;
 					// }
-					// else {
-					// 	counts[detail.president_congress].total_acres += +acres;
+					// if (obj.size_type === 'Square Miles') {
+					// 	counts[detail.president_congress]["total_sq_mi_est"] = +detail.size_num;
 					// }
+
 				}
+
+				//console.log(detail)
 			} 
+
+
 		});
 	});
 
@@ -88,11 +110,11 @@ fs.readFile('data.json', 'utf8', function (err, data) {
 	});
 	//console.log(counts)
   
-  	fs.writeFileSync('count.json', JSON.stringify(counts), 'utf8', function (err) {
-		if (err) {
-			console.log("failed!");
-		} else {
-			console.log("success!");
-		}
-	});
+ //  	fs.writeFileSync('count.json', JSON.stringify(counts), 'utf8', function (err) {
+	// 	if (err) {
+	// 		console.log("failed!");
+	// 	} else {
+	// 		console.log("success!");
+	// 	}
+	// });
 });

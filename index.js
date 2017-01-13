@@ -87,7 +87,7 @@ request(url, function (err, resp, body) {
 				"action": "Established",
 				"date": "12/28/2016",
 				"president_congress": "B. H. Obama",
-				"acres": "1350000"
+				"size_num": "1350000"
 			}],
 			"size_type": "Acres"
 		},
@@ -98,7 +98,7 @@ request(url, function (err, resp, body) {
 				"action": "Established",
 				"date": "12/28/2016",
 				"president_congress": "B. H. Obama",
-				"acres": "296937"
+				"size_num": "296937"
 			}],
 			"size_type": "Acres"
 		},
@@ -109,7 +109,7 @@ request(url, function (err, resp, body) {
 				"action": "Established",
 				"date": "01/12/2017",
 				"president_congress": "B. H. Obama",
-				"acres": "unknown" 
+				"size_num": "unknown" 
 			}],
 			"size_type": "Acres"
 		},
@@ -120,7 +120,7 @@ request(url, function (err, resp, body) {
 				"action": "Established",
 				"date": "01/12/2017",
 				"president_congress": "B. H. Obama",
-				"acres": "unknown" 
+				"size_num": "unknown" 
 			}],
 			"size_type": "Acres"
 		},
@@ -131,7 +131,7 @@ request(url, function (err, resp, body) {
 				"action": "Established",
 				"date": "01/12/2017",
 				"president_congress": "B. H. Obama",
-				"acres": "unknown" 
+				"size_num": "unknown" 
 			}],
 			"size_type": "Acres"
 		}
