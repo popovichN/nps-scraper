@@ -23,6 +23,7 @@ request(url, function (err, resp, body) {
 			var index_name = $(this).text().split('. ');
 			var index = +index_name[0];
 			var name = index_name[1].trim();
+
 			//console.log(name)
 			monument.name = name;
 			monument.index = index;
@@ -41,10 +42,21 @@ request(url, function (err, resp, body) {
 						details['date'] = $(this).text().trim();
 					}
 					else if (index_cell === 2) {
-						details['president_congress'] = $(this).text().trim();
+						var founder = $(this).text().trim();
+
+						//fix name discrepancies
+						if(founder === 'F.D. Roosevelt') {
+							founder = 'F. Roosevelt';
+						}
+						if (founder === 'B.H. Obama') {
+							founder = 'B. H. Obama'
+						}
+
+						details['president_congress'] = founder;
+
 					}
 					else if (index_cell === 3) {
-						details['acres'] = $(this).text().trim();
+						details['acres'] = $(this).text().replace(/,/g, "").replace(/,/g, "").trim();
 					}
 				})
 
@@ -63,7 +75,7 @@ request(url, function (err, resp, body) {
 			"action": "Established",
 			"date": "12/28/2016",
 			"president_congress": "B. H. Obama",
-			"acres": "1,350,000"
+			"acres": "1350000"
 		}]
 	};
 	var gold_butte = {
@@ -73,7 +85,7 @@ request(url, function (err, resp, body) {
 			"action": "Established",
 			"date": "12/28/2016",
 			"president_congress": "B. H. Obama",
-			"acres": "296,937"
+			"acres": "296937"
 		}]
 	};
 
